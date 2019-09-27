@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Todo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<form method="get" asp-action="search">
+    <label for="query">Suche</label>
+    <input type="text" name="query" id="query"/>
+    <button type="submit">Suchen</button>
+</form>
+
+<ul>
+    @foreach (var todo in Model)
+    {
+        <li>
+    <a asp-controller="Todos" asp-action="Detail" asp-route-id="@todo.Id">@todo.Name</a>
+    <a asp-controller="Todos" asp-action="Edit" asp-route-id="@todo.Id">Editieren</a>
+    <a asp-controller="Todos" asp-action="Delete" asp-route-id="@todo.Id">Löschen</a>
+        </li>
+    }
+</ul>
+<a asp-controller="Todos" asp-action="create">Neues Todo erstellen</a>
+@* Kommentar *@
+<!-- Das ist im Browser sichtbar -->
+
+
+<script>
+    jQuery.get("https://localhost:44371/api/todos", function (data, x) {
+        alert(data);
+    });
+</script>

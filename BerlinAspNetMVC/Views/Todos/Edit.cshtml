@@ -1,0 +1,15 @@
+﻿@model Todo
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<form method="post" asp-action="edit" asp-route-id="@Model.Id">
+    <label for="Name">Name</label>
+    <input type="text" name="Name" id="Name" value="@Model.Name"/>
+    <label for="Description">Beschreibung</label>
+    <input type="text" name="@nameof(Model.Description)" id="Description" value="@Model.Description"/>
+    <button type="submit">Senden</button>
+</form>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Todo>
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Search</h1>
+
+<ul>
+    @foreach (var todo in Model)
+    {
+        <li>@todo.Name</li>
+    }
+</ul>
